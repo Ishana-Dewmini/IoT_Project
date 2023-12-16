@@ -1,0 +1,2662 @@
+[
+    {
+        "id": "14d2f98a5c905fa8",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cae50228a8ae0d58",
+        "type": "mqtt in",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "topic": "Group07_Project",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7d6d5365f9e5da18",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "428d9b0b2d212de5",
+                "c65484b31669a2e7",
+                "3ed65581ced64749",
+                "f290274a342f6c30"
+            ]
+        ]
+    },
+    {
+        "id": "428d9b0b2d212de5",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 32",
+        "func": "msg.payload = parseFloat(msg.payload[\"pH\"]);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 40,
+        "wires": [
+            [
+                "53f7341b90812945",
+                "3fdc5f139f45718f",
+                "07fe1894b9732b47",
+                "3a8550b6835fc6d0",
+                "2742be6e693c1a72"
+            ]
+        ]
+    },
+    {
+        "id": "a1b76950883b5a25",
+        "type": "ui_gauge",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 2,
+        "width": 9,
+        "height": 5,
+        "gtype": "donut",
+        "title": "Dissolve Oxygen",
+        "label": "%",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "250",
+        "colors": [
+            "#e3e718",
+            "#00e61b",
+            "#ca3838"
+        ],
+        "seg1": "80",
+        "seg2": "110",
+        "diff": false,
+        "className": "",
+        "x": 905,
+        "y": 160,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "c65484b31669a2e7",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 33",
+        "func": "msg.payload = parseFloat(msg.payload[\"Temperature\"]);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "ae58193def2d8785",
+                "5f50d5a81e27d931",
+                "e673c8d9e3d8af86",
+                "e86fe19e10b7104a",
+                "f0e679f497377bd1"
+            ]
+        ]
+    },
+    {
+        "id": "ae58193def2d8785",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 19,
+        "width": 10,
+        "height": 6,
+        "label": "Temperature Variation in last 12h",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1eb328",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1120,
+        "y": 340,
+        "wires": [
+            [
+                "07ed27537de67453"
+            ]
+        ]
+    },
+    {
+        "id": "5f50d5a81e27d931",
+        "type": "ui_widget_thermometer",
+        "z": "14d2f98a5c905fa8",
+        "group": "91f74a3f5a7ae747",
+        "order": 4,
+        "width": 4,
+        "height": 6,
+        "name": "",
+        "title": "Temperature",
+        "numColor": 3,
+        "colorTop": "#2043f3",
+        "colorMiddle": "#8bc34a",
+        "colorBottom": "#e8f538",
+        "unit": "°C",
+        "scale": "normal",
+        "minTemp": 0,
+        "maxTemp": 100,
+        "minTempMoreThanMaxTemp": "1",
+        "numberOfDecimals": "2",
+        "showPercentage": "0",
+        "currentTempFontSize": "1.2",
+        "x": 970,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "53f7341b90812945",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 20,
+        "width": 9,
+        "height": 6,
+        "label": "pH level variation in last 12h",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1200,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "64c76c82490bec98",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 18,
+        "width": 9,
+        "height": 6,
+        "label": "Disolve Oxygen Variation in last 12h",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1250,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ed65581ced64749",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 34",
+        "func": "msg.payload = parseFloat(msg.payload[\"Oxygen\"]);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "64c76c82490bec98",
+                "d1ee21fbf800e2d1",
+                "993b34044d18a63e",
+                "a1b76950883b5a25",
+                "47e81904810e4bdf"
+            ]
+        ]
+    },
+    {
+        "id": "54ef66deb5f789b6",
+        "type": "mqtt in",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "topic": "Group07",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7d6d5365f9e5da18",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 660,
+        "wires": [
+            [
+                "d5de8c813299e7c5",
+                "739d392bd816b019",
+                "8d0ade82a8f932e8",
+                "0bbcf1dcb9c68187"
+            ]
+        ]
+    },
+    {
+        "id": "d5de8c813299e7c5",
+        "type": "debug",
+        "z": "14d2f98a5c905fa8",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "989ce2a120b7fa1a",
+        "type": "ui_gauge",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 7,
+        "width": 9,
+        "height": 5,
+        "gtype": "wave",
+        "title": "Light Intensity",
+        "label": "lux",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "250",
+        "colors": [
+            "#e3e718",
+            "#00e61b",
+            "#ca3838"
+        ],
+        "seg1": "80",
+        "seg2": "110",
+        "diff": false,
+        "className": "",
+        "x": 895,
+        "y": 720,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "739d392bd816b019",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 36",
+        "func": "msg.payload = parseFloat(msg.payload[\"temparature\"]);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 760,
+        "wires": [
+            [
+                "6ef69ee8d4831a7d",
+                "179bcbaa4bf3470e",
+                "e3eb6a74c1347c1c",
+                "ab2ad137c55275dd"
+            ]
+        ]
+    },
+    {
+        "id": "6ef69ee8d4831a7d",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 24,
+        "width": 10,
+        "height": 6,
+        "label": "Temperature Variation in last 12h",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1eb328",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1200,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "179bcbaa4bf3470e",
+        "type": "ui_widget_thermometer",
+        "z": "14d2f98a5c905fa8",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 9,
+        "width": 4,
+        "height": 6,
+        "name": "",
+        "title": "Temperature",
+        "numColor": 3,
+        "colorTop": "#2196f3",
+        "colorMiddle": "#8bc34a",
+        "colorBottom": "#f44336",
+        "unit": "°C",
+        "scale": "normal",
+        "minTemp": 0,
+        "maxTemp": 100,
+        "minTempMoreThanMaxTemp": "1",
+        "numberOfDecimals": "0",
+        "showPercentage": "0",
+        "currentTempFontSize": "1.2",
+        "x": 950,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "6356c17b729d473c",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 25,
+        "width": 9,
+        "height": 6,
+        "label": "Water level Variation in last 12h",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1310,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71ea74b03ee83146",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 23,
+        "width": 9,
+        "height": 6,
+        "label": "Light Intensity Variation in last 12h",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1280,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d0ade82a8f932e8",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 37",
+        "func": "msg.payload = parseFloat(msg.payload[\"lightIntensity\"]);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 700,
+        "wires": [
+            [
+                "71ea74b03ee83146",
+                "d0d441938685f8b9",
+                "989ce2a120b7fa1a",
+                "5633749c5438227e"
+            ]
+        ]
+    },
+    {
+        "id": "d7b0507dd86f04a7",
+        "type": "ui_text_input",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "label": "Height of the tank",
+        "tooltip": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 2,
+        "width": 8,
+        "height": 1,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "2ceb656fc418f646"
+            ]
+        ]
+    },
+    {
+        "id": "0bbcf1dcb9c68187",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 38",
+        "func": "msg.payload = global.get('h') + global.get('l') - parseFloat(msg.payload[\"waterLevelDistance\"]);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 640,
+        "wires": [
+            [
+                "6356c17b729d473c",
+                "736a2b0ca6f7a9c3",
+                "675701a832083d59",
+                "7c4f85efb8f677a2"
+            ]
+        ]
+    },
+    {
+        "id": "d5e71c44d1cd368a",
+        "type": "ui_text_input",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "label": "Sensor Level",
+        "tooltip": "Distance between top of the tank  and the sensor",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 4,
+        "width": 8,
+        "height": 1,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 90,
+        "y": 440,
+        "wires": [
+            [
+                "268ec0e19d49ebea"
+            ]
+        ]
+    },
+    {
+        "id": "2ceb656fc418f646",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 39",
+        "func": "parseFloat(global.set('h', msg.payload));",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "268ec0e19d49ebea",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 41",
+        "func": "global.set('l', parseFloat(msg.payload));",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "736a2b0ca6f7a9c3",
+        "type": "ui_gauge",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 11,
+        "width": 9,
+        "height": 5,
+        "gtype": "wave",
+        "title": "Water Level",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 770,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3fdc5f139f45718f",
+        "type": "ui_gauge",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 6,
+        "width": 9,
+        "height": 5,
+        "gtype": "gage",
+        "title": "pH Level",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "14",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "6.5",
+        "seg2": "8.5",
+        "diff": false,
+        "className": "",
+        "x": 880,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "07fe1894b9732b47",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 42",
+        "func": "if ((parseFloat(msg.payload) < 6.5) || (parseFloat(msg.payload)> 8.5)){\n    msg.payload = 1;\n    global.set('ph', msg.payload);\n    \n}\nelse{\n    if ((parseFloat(msg.payload) > 6.5 && parseFloat(msg.payload) < 7) || (parseFloat(msg.payload) < 8.5 && parseFloat(msg.payload) > 8)) {\n    msg.payload = 2;\n    global.set('ph', msg.payload);\n    }\n    \n    else\n    {\n        msg.payload = 3;\n        global.set('ph', msg.payload);\n        \n    }\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "6de93da40364bfdf"
+            ]
+        ]
+    },
+    {
+        "id": "6de93da40364bfdf",
+        "type": "ui_led",
+        "z": "14d2f98a5c905fa8",
+        "order": 2,
+        "group": "06b89ebe2b388c1e",
+        "width": 5,
+        "height": 2,
+        "label": "pH indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "#008000",
+                "value": "3",
+                "valueType": "num"
+            },
+            {
+                "color": "#ffff00",
+                "value": "2",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": false,
+        "name": "",
+        "x": 1030,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d1ee21fbf800e2d1",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 43",
+        "func": "if ((parseFloat(msg.payload) < 75) || (parseFloat(msg.payload)> 115)){\n    msg.payload = 1;\n    global.set('o2', msg.payload);\n}\nelse{\n    if ((parseFloat(msg.payload) > 75 && parseFloat(msg.payload) < 80) || (parseFloat(msg.payload) < 120 && parseFloat(msg.payload) > 115)) {\n    msg.payload = 2;\n    global.set('o2', msg.payload);\n    }\n    else{\n        msg.payload = 3;\n        global.set('o2', msg.payload);\n    }\n\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 240,
+        "wires": [
+            [
+                "1bbb15c8ea479360"
+            ]
+        ]
+    },
+    {
+        "id": "e86fe19e10b7104a",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 44",
+        "func": "if ((parseFloat(msg.payload) < 18) || (parseFloat(msg.payload)> 29)){\n    msg.payload = 1;\n    global.set('temp', msg.payload);\n}\nelse{\n    if ((parseFloat(msg.payload) > 18 && parseFloat(msg.payload) < 20) || (parseFloat(msg.payload) < 29 && parseFloat(msg.payload) > 27)) {\n    msg.payload = 2;\n    global.set('temp', msg.payload);\n    }\n    else{\n        msg.payload = 3;\n        global.set('temp', msg.payload);\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 380,
+        "wires": [
+            [
+                "0b39f538f62829fb"
+            ]
+        ]
+    },
+    {
+        "id": "1bbb15c8ea479360",
+        "type": "ui_led",
+        "z": "14d2f98a5c905fa8",
+        "order": 6,
+        "group": "06b89ebe2b388c1e",
+        "width": 5,
+        "height": 2,
+        "label": "O2 indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "#008000",
+                "value": "3",
+                "valueType": "num"
+            },
+            {
+                "color": "#ffff00",
+                "value": "2",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1030,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0b39f538f62829fb",
+        "type": "ui_led",
+        "z": "14d2f98a5c905fa8",
+        "order": 4,
+        "group": "06b89ebe2b388c1e",
+        "width": 6,
+        "height": 2,
+        "label": "Temperature indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "#008000",
+                "value": "3",
+                "valueType": "num"
+            },
+            {
+                "color": "#ffff00",
+                "value": "2",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1030,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3c47f936bb780b00",
+        "type": "mqtt out",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "topic": "Project_Group_07_out",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cd80e347aa46abda",
+        "x": 1440,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "07ed27537de67453",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 45",
+        "func": "msg.payload = {'ph':global.get('ph'), 'temp':global.get('temp'), 'o2':global.get('o2')};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 340,
+        "wires": [
+            [
+                "3c47f936bb780b00"
+            ]
+        ]
+    },
+    {
+        "id": "e673c8d9e3d8af86",
+        "type": "blynk-iot-out-write",
+        "z": "14d2f98a5c905fa8",
+        "name": "Water Temparature",
+        "pin": "0",
+        "pinmode": 0,
+        "client": "606a68e145bf0b46",
+        "x": 790,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "e3eb6a74c1347c1c",
+        "type": "blynk-iot-out-write",
+        "z": "14d2f98a5c905fa8",
+        "name": "Air Temparature",
+        "pin": "1",
+        "pinmode": 0,
+        "client": "606a68e145bf0b46",
+        "x": 780,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "d0d441938685f8b9",
+        "type": "blynk-iot-out-write",
+        "z": "14d2f98a5c905fa8",
+        "name": "Light Intensity",
+        "pin": "3",
+        "pinmode": 0,
+        "client": "606a68e145bf0b46",
+        "x": 780,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "3a8550b6835fc6d0",
+        "type": "blynk-iot-out-write",
+        "z": "14d2f98a5c905fa8",
+        "name": "PH",
+        "pin": "4",
+        "pinmode": 0,
+        "client": "606a68e145bf0b46",
+        "x": 750,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "993b34044d18a63e",
+        "type": "blynk-iot-out-write",
+        "z": "14d2f98a5c905fa8",
+        "name": "Disolve Oxygen",
+        "pin": "5",
+        "pinmode": 0,
+        "client": "606a68e145bf0b46",
+        "x": 780,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "675701a832083d59",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 46",
+        "func": "msg.payload = msg.payload * 100 / global.get('h');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 640,
+        "wires": [
+            [
+                "2889d4519cbe7858"
+            ]
+        ]
+    },
+    {
+        "id": "2889d4519cbe7858",
+        "type": "blynk-iot-out-write",
+        "z": "14d2f98a5c905fa8",
+        "name": "percentage height",
+        "pin": "2",
+        "pinmode": 0,
+        "client": "606a68e145bf0b46",
+        "x": 970,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f290274a342f6c30",
+        "type": "debug",
+        "z": "14d2f98a5c905fa8",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2742be6e693c1a72",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 1,
+        "width": 28,
+        "height": 6,
+        "label": "pH Level ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1420,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47e81904810e4bdf",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 6,
+        "width": 28,
+        "height": 6,
+        "label": "Oxygen Level ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1500,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f0e679f497377bd1",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 11,
+        "width": 28,
+        "height": 6,
+        "label": "Water Temparature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1570,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5633749c5438227e",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 16,
+        "width": 28,
+        "height": 5,
+        "label": "Light Intensity ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1500,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab2ad137c55275dd",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 26,
+        "width": 28,
+        "height": 6,
+        "label": "Air Temparature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1500,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c4f85efb8f677a2",
+        "type": "ui_chart",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 21,
+        "width": 28,
+        "height": 5,
+        "label": "Water Level",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "4",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#b31e35",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1530,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "470369e4463753fe",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(pH)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1060,
+        "y": 20,
+        "wires": [
+            [
+                "da4db4b96dde15b6"
+            ]
+        ]
+    },
+    {
+        "id": "da4db4b96dde15b6",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 47",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 20,
+        "wires": [
+            [
+                "2742be6e693c1a72"
+            ]
+        ]
+    },
+    {
+        "id": "71f8039cbe830833",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 8,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Oxygen Level)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1120,
+        "y": 140,
+        "wires": [
+            [
+                "d25725b1cabbb12a"
+            ]
+        ]
+    },
+    {
+        "id": "d25725b1cabbb12a",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 48",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 140,
+        "wires": [
+            [
+                "47e81904810e4bdf"
+            ]
+        ]
+    },
+    {
+        "id": "6e5c70f2ef660a6f",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 13,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Water Temperature)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1170,
+        "y": 280,
+        "wires": [
+            [
+                "2e4b20168133a036"
+            ]
+        ]
+    },
+    {
+        "id": "2e4b20168133a036",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 49",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1390,
+        "y": 280,
+        "wires": [
+            [
+                "f0e679f497377bd1"
+            ]
+        ]
+    },
+    {
+        "id": "33301fc8f5708ac7",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 23,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Water Level)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1070,
+        "y": 540,
+        "wires": [
+            [
+                "e15c9c02ec4d6d97"
+            ]
+        ]
+    },
+    {
+        "id": "e15c9c02ec4d6d97",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 50",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 540,
+        "wires": [
+            [
+                "7c4f85efb8f677a2"
+            ]
+        ]
+    },
+    {
+        "id": "e4cc35e8766c7996",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 18,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Light Intensity)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1100,
+        "y": 700,
+        "wires": [
+            [
+                "4122df60fde8c88b"
+            ]
+        ]
+    },
+    {
+        "id": "4122df60fde8c88b",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 51",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 700,
+        "wires": [
+            [
+                "5633749c5438227e"
+            ]
+        ]
+    },
+    {
+        "id": "106de19cd23945fd",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "ae67c050e1afbc80",
+        "order": 28,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Air Temperature)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1120,
+        "y": 820,
+        "wires": [
+            [
+                "f07db5d35ae8f2ec"
+            ]
+        ]
+    },
+    {
+        "id": "f07db5d35ae8f2ec",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 52",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 820,
+        "wires": [
+            [
+                "ab2ad137c55275dd"
+            ]
+        ]
+    },
+    {
+        "id": "4560a2a52c6fb70b",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 26,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(pH)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 800,
+        "y": 60,
+        "wires": [
+            [
+                "5844a480d55c0a5e"
+            ]
+        ]
+    },
+    {
+        "id": "5844a480d55c0a5e",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 53",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 60,
+        "wires": [
+            [
+                "53f7341b90812945"
+            ]
+        ]
+    },
+    {
+        "id": "5ecf0854ec718560",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 54",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 200,
+        "wires": [
+            [
+                "64c76c82490bec98"
+            ]
+        ]
+    },
+    {
+        "id": "32d00ec94258345f",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 22,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Oxygen Level)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 760,
+        "y": 200,
+        "wires": [
+            [
+                "5ecf0854ec718560"
+            ]
+        ]
+    },
+    {
+        "id": "ced0e4865c9f19b8",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "91f74a3f5a7ae747",
+        "order": 24,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Water Temperature)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 630,
+        "y": 340,
+        "wires": [
+            [
+                "e4941c0ae2fead70"
+            ]
+        ]
+    },
+    {
+        "id": "e4941c0ae2fead70",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 55",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 340,
+        "wires": [
+            [
+                "ae58193def2d8785"
+            ]
+        ]
+    },
+    {
+        "id": "09645831b46a8013",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 56",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 600,
+        "wires": [
+            [
+                "6356c17b729d473c"
+            ]
+        ]
+    },
+    {
+        "id": "92e67d013ceb15da",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 31,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Water Level)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 770,
+        "y": 600,
+        "wires": [
+            [
+                "09645831b46a8013"
+            ]
+        ]
+    },
+    {
+        "id": "3404b62b698e1837",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 27,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Light Intensity)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 800,
+        "y": 760,
+        "wires": [
+            [
+                "2e7883f6d424fe99"
+            ]
+        ]
+    },
+    {
+        "id": "2e7883f6d424fe99",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 57",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 760,
+        "wires": [
+            [
+                "71ea74b03ee83146"
+            ]
+        ]
+    },
+    {
+        "id": "6acc9b17b3918745",
+        "type": "ui_button",
+        "z": "14d2f98a5c905fa8",
+        "name": "",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 29,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart(Air Temperature)",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 740,
+        "y": 940,
+        "wires": [
+            [
+                "ea2aea2ad6d27890"
+            ]
+        ]
+    },
+    {
+        "id": "ea2aea2ad6d27890",
+        "type": "function",
+        "z": "14d2f98a5c905fa8",
+        "name": "function 58",
+        "func": "if(msg.payload === \"reset\"){\n    msg.payload = [];\n    msg.topic = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 940,
+        "wires": [
+            [
+                "6ef69ee8d4831a7d"
+            ]
+        ]
+    },
+    {
+        "id": "41c96581103179f8",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "0f190a5172aefb1c",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 3,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "e32a858ada7f8ec8",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "10968ff2e20cdd9c",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "055c77290541ec7e",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "4437433f9e8825ce",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 9,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "35a2ae7edcfe7e59",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 10,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "1d439a509e42618a",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "06b89ebe2b388c1e",
+        "order": 11,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "d465d2cc539935b8",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 1,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "17ccbb79add293cd",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 3,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "bc5986be88ee69ef",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 5,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "0ab6bed80d8f1743",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 7,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "35f5cfbf0756c42b",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 8,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "9d9a140c45631ef6",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 9,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "93d23fdd3c38d0a2",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 10,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "5f757e2d0bdbddaf",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 11,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "90dc2e9e61bf123d",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 12,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "bc2978f2826404de",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 13,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "2777bccf4bcce32e",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "9930bb01bd2852e0",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 15,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "fb7e623b53ee66ca",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 16,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "134b2b58853336d1",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 17,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "3c707b403cb69456",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 21,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "5233002be02172a5",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 23,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "f2b220c255ae1290",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 25,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "5da85039af45dce1",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "91f74a3f5a7ae747",
+        "order": 27,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "1c0b4bad2364ea4e",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 1,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "72f360d92cec13c8",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 3,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "f1c848b92210980d",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "0eca29a0acc3c57e",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 6,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "590c222f81ab2ddf",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 8,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "34c038e75f1f2485",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 10,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "14c263ecf27f7447",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 12,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "100dc902fdb723d8",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 13,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "aada9c9d622a0374",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "c965c1c18f6947e1",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 15,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "5e5581aa62048a0e",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 16,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "9cdda37717a74d24",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 17,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "8a488f3cc4f33eef",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 18,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "0ad75b17ef43b337",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 19,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "c0002df0b7815dad",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 20,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "d1b5e3323ec298df",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 21,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "3f7f6e05ebdc50af",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 22,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "3ae527292e579f5b",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 26,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "dcad9aa29a500629",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 28,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "476a85cb9b6262e7",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 30,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "aaa911ad2dd6234d",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "4c4f6a17dcf0f29f",
+        "order": 32,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "a87b302bd2b7a8dd",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "57b756ba982f0f29",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "f753ba42b7d4c55a",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 5,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "d7facbf75947d49f",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0bc79db4f157d82b",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 9,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "68a174c8d86a73ae",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 10,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "72cc308b53fdf86e",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 12,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "34ebecadf20efa89",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 14,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0ade9feb1819cba0",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 15,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "76ac7deb5f863270",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 17,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "6ecb5669eff41cd3",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 19,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0d27de0ed3d71cfe",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 20,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "417a4c11de37a4e3",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 22,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "2df4fddff0984881",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 24,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "0a98f8b9edf69842",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 25,
+        "width": 28,
+        "height": 1
+    },
+    {
+        "id": "b9303697e8dbdf58",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 27,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "8146617db55e3771",
+        "type": "ui_spacer",
+        "z": "14d2f98a5c905fa8",
+        "name": "spacer",
+        "group": "ae67c050e1afbc80",
+        "order": 29,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "7d6d5365f9e5da18",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "91f74a3f5a7ae747",
+        "type": "ui_group",
+        "name": "Node Inside the Water",
+        "tab": "155062d7fe440374",
+        "order": 2,
+        "disp": true,
+        "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4c4f6a17dcf0f29f",
+        "type": "ui_group",
+        "name": "Node Outside the water",
+        "tab": "155062d7fe440374",
+        "order": 3,
+        "disp": true,
+        "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "06b89ebe2b388c1e",
+        "type": "ui_group",
+        "name": "Warning",
+        "tab": "155062d7fe440374",
+        "order": 1,
+        "disp": true,
+        "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cd80e347aa46abda",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "606a68e145bf0b46",
+        "type": "blynk-iot-client",
+        "name": "type1",
+        "path": "blynk.cloud",
+        "key": "U0SgWfVNIOLoB_x-Z9OYn49tRjbt0kZ9",
+        "tmpl": "TMPL6KcoidYs_",
+        "dbg_all": false,
+        "dbg_log": false,
+        "dbg_prop": false,
+        "dbg_sync": false,
+        "dbg_low": false,
+        "dbg_pins": "",
+        "multi_cmd": false,
+        "enabled": true
+    },
+    {
+        "id": "ae67c050e1afbc80",
+        "type": "ui_group",
+        "name": "Variation in last month",
+        "tab": "40515b7bf09e252f",
+        "order": 1,
+        "disp": true,
+        "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "155062d7fe440374",
+        "type": "ui_tab",
+        "name": "Fish_tank",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "40515b7bf09e252f",
+        "type": "ui_tab",
+        "name": "History",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
